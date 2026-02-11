@@ -1,230 +1,235 @@
-🚀 Customer Churn Prediction — Production-Style ML Pipeline
+
+
+# 🚀 **Customer Churn Prediction — Production-Style ML Pipeline**
 
 End-to-end machine learning system that predicts telecom customer churn and translates model outputs into actionable business retention strategies.
 
-Built with a strong focus on reproducibility, modular pipelines, model evaluation, and real-world deployment readiness.
+Built with a strong focus on **reproducibility, modular pipelines, model evaluation, and real-world deployment readiness**.
 
-🧠 Why This Project Matters
+---
+
+## 🧠 **Why This Project Matters**
 
 Customer churn directly impacts revenue in subscription businesses.
 This system enables companies to:
 
-Identify high-risk customers early
+* Identify high-risk customers early
+* Understand drivers behind churn
+* Launch targeted retention campaigns
 
-Understand drivers behind churn
+> Retaining existing customers is significantly cheaper than acquiring new ones — predictive retention directly improves profitability.
 
-Launch targeted retention campaigns
+---
 
-Retaining existing customers is significantly cheaper than acquiring new ones — predictive retention directly improves profitability.
+## 🏗️ **What I Built**
 
-🏗️ What I Built
-✔ End-to-End ML Workflow
+### ✔ **End-to-End ML Workflow**
 
-Data ingestion & preprocessing pipeline
+* Data ingestion & preprocessing pipeline
+* Feature engineering experiments
+* Multi-model training & comparison
+* Model evaluation with business interpretation
+* Reusable prediction interface
+* Production-style project structure
 
-Feature engineering experiments
+---
 
-Multi-model training & comparison
+### ✔ **Engineering Highlights**
 
-Model evaluation with business interpretation
+* Modular pipeline architecture (`src/`)
+* Serialized preprocessing + model artifacts
+* Reproducible training workflow
+* Separation of notebooks vs production code
+* Model comparison with standardized metrics
+* Business-driven evaluation beyond accuracy
 
-Reusable prediction interface
+---
 
-Production-style project structure
+## 📊 **Dataset**
 
-✔ Engineering Highlights
-
-Modular pipeline architecture (src/)
-
-Serialized preprocessing + model artifacts
-
-Reproducible training workflow
-
-Separation of notebooks vs production code
-
-Model comparison with standardized metrics
-
-Business-driven evaluation beyond accuracy
-
-📊 Dataset
-
-IBM Telco Customer Churn Dataset
+**IBM Telco Customer Churn Dataset**
 7,043 telecom customers with 20+ behavioral & financial features.
 
-Feature Categories
+### **Feature Categories**
 
-Demographics
+* Demographics
+* Service subscriptions
+* Contract & billing information
+* Usage patterns
+* Monthly & total charges
 
-Service subscriptions
-
-Contract & billing information
-
-Usage patterns
-
-Monthly & total charges
-
-Target: Customer Churn (binary classification)
+**Target:** Customer Churn (binary classification)
 
 Class imbalance present (~26% churn).
 
-⚙️ ML Approach
-Data Pipeline
+---
 
-Missing value handling
+## ⚙️ **ML Approach**
 
-Categorical encoding
+### **Data Pipeline**
 
-Feature scaling
+* Missing value handling
+* Categorical encoding
+* Feature scaling
+* Train/test splitting
+* Persisted preprocessing pipeline
 
-Train/test splitting
+---
 
-Persisted preprocessing pipeline
+### **Models Evaluated**
 
-Models Evaluated
-
-Logistic Regression
-
-Decision Tree
-
-Random Forest
-
-Gradient Boosting
-
-XGBoost
+* Logistic Regression
+* Decision Tree
+* Random Forest
+* Gradient Boosting
+* XGBoost
 
 Evaluation Metrics:
 
-Precision / Recall
+* Precision / Recall
+* F1 Score
+* ROC-AUC
+* Confusion Matrix Analysis
 
-F1 Score
+---
 
-ROC-AUC
+## 📈 **Results**
 
-Confusion Matrix Analysis
+| Model               | Accuracy | Precision | Recall   | F1       | ROC-AUC  |
+| ------------------- | -------- | --------- | -------- | -------- | -------- |
+| Logistic Regression | 0.80     | 0.67      | 0.55     | 0.60     | 0.85     |
+| Decision Tree       | 0.78     | 0.61      | 0.57     | 0.59     | 0.76     |
+| **Random Forest**   | **0.82** | **0.71**  | **0.58** | **0.64** | **0.86** |
+| Gradient Boosting   | 0.81     | 0.69      | 0.57     | 0.63     | 0.85     |
+| XGBoost             | 0.82     | 0.70      | 0.58     | 0.64     | 0.86     |
 
-📈 Results
-Model	Accuracy	Precision	Recall	F1	ROC-AUC
-Logistic Regression	0.80	0.67	0.55	0.60	0.85
-Decision Tree	0.78	0.61	0.57	0.59	0.76
-Random Forest	0.82	0.71	0.58	0.64	0.86
-Gradient Boosting	0.81	0.69	0.57	0.63	0.85
-XGBoost	0.82	0.70	0.58	0.64	0.86
-Best Model: Random Forest
+### **Best Model: Random Forest**
 
-ROC-AUC: 0.8598
+* ROC-AUC: 0.8598
+* Precision: 71%
+* Recall on churners: 58%
 
-Precision: 71%
+Trade-off: Increasing recall reduces missed churners but increases false positives — an important business decision.
 
-Recall on churners: 58%
+---
 
-Trade-off: Higher recall would reduce missed churners but increase false positives — important business decision point.
+## 💡 **Key Business Insights**
 
-💡 Key Business Insights
+* Month-to-month contracts show highest churn risk
+* First 12 months are critical retention window
+* Fiber customers demonstrate elevated churn
+* Higher monthly charges correlate with churn
+* Tech support significantly reduces churn probability
 
-Month-to-month contracts have highest churn risk
+---
 
-First 12 months are critical retention window
+## 🚀 **How to Run**
 
-Fiber customers show elevated churn patterns
+### **Setup**
 
-Higher monthly charges correlate with churn
-
-Tech support significantly reduces churn risk
-
-🚀 How to Run
-Setup
-git clone https://github.com/yourusername/customer-churn-prediction.git
+```bash
+git clone https://github.com/karand11/customer-churn-prediction.git
 cd customer-churn-prediction
 
 python -m venv venv
-venv\Scripts\activate   # Windows
-source venv/bin/activate  # Mac/Linux
+venv\Scripts\activate
+# or
+source venv/bin/activate
 
 pip install -r requirements.txt
-
+```
 
 Place dataset in:
 
+```
 data/raw/
+```
 
-Training Pipeline
+---
+
+### **Training Pipeline**
+
+```bash
 python src/data_preprocessing.py
 python src/train.py
 python src/evaluate.py
+```
 
-Generate Predictions
+---
+
+### **Generate Predictions**
+
+```bash
 python src/predict.py
-
+```
 
 Programmatic usage:
 
+```python
 from src.predict import ChurnPredictor
 
 predictor = ChurnPredictor()
 prediction, probability = predictor.predict(customer_data)
+```
 
-📁 Project Structure
+---
+
+## 📁 **Project Structure**
+
+```
 customer-churn-prediction/
 ├── data/
 ├── notebooks/
 ├── src/
-│   ├── data_preprocessing.py
-│   ├── train.py
-│   ├── evaluate.py
-│   └── predict.py
 ├── models/
 ├── results/
 ├── reports/
 └── README.md
+```
 
-🛠️ Tech Stack
+---
 
-Python
+## 🛠️ **Tech Stack**
 
-pandas / NumPy
+* Python
+* pandas / NumPy
+* scikit-learn
+* XGBoost
+* matplotlib / seaborn
+* Jupyter
 
-scikit-learn
+---
 
-XGBoost
+## 🔮 **Future Work**
 
-matplotlib / seaborn
+* Hyperparameter optimization
+* SMOTE & imbalance handling
+* Model explainability (SHAP)
+* REST API deployment
+* Docker containerization
+* Streamlit dashboard
+* Cloud deployment (AWS/GCP)
 
-Jupyter
+---
 
-🔮 Future Work
+## 👤 **Author**
 
-Hyperparameter optimization
-
-SMOTE & advanced imbalance handling
-
-Model explainability (SHAP)
-
-REST API deployment
-
-Docker containerization
-
-Streamlit dashboard
-
-Cloud deployment (AWS/GCP)
-
-👤 Author
-
-Karan Dhanawade
+**Karan Dhanawade**
 Master’s Student — Computer Science (Data Engineering)
 TU Chemnitz
 
 GitHub: https://github.com/karand11/customer-churn-prediction.git
-
 LinkedIn: https://linkedin.com/in/karan-dhanawade
 
-⭐ If You’re a Recruiter
+---
+
+## ⭐ **For Recruiters**
 
 This project demonstrates:
 
-Production-style ML workflow
+* Production-style ML workflow
+* Business-aware model evaluation
+* Modular engineering design
+* End-to-end ML system thinking
 
-Model evaluation with business reasoning
-
-Structured engineering practices
-
-End-to-end system thinking
+---
