@@ -223,13 +223,3 @@ LinkedIn: https://linkedin.com/in/karan-dhanawade
 
 ---
 
-## ⭐ **For Recruiters**
-
-This project demonstrates:
-
-* Production-style ML workflow
-* Business-aware model evaluation
-* Modular engineering design
-* End-to-end ML system thinking
-
----
